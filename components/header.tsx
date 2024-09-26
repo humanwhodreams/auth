@@ -3,6 +3,7 @@
 import { Brand } from '@/components/ui/brand';
 import { HeaderMobile } from './header.mobile';
 import Link from 'next/link';
+import { ThemeToggle } from './theme-toggle';
 import { buttonVariants } from './ui/button';
 import { cn } from '@/lib/cn';
 import { useMediaQuery } from '@/hooks/use-media-query';
@@ -19,13 +20,19 @@ export function Header({ classes }: Props) {
 
   return (
     <header className={cn('w-full sticky top-0 inset-x-0', classes?.header)}>
-      <nav className={cn('flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 h-14 py-1.5', classes?.nav)}>
+      <nav
+        className={cn(
+          'flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 h-14 py-1.5',
+          classes?.nav
+        )}
+      >
         <Brand />
 
         {IS_MOBILE ? (
           <HeaderMobile />
         ) : (
-          <div className="flex items-center gap-x-4">
+          <div className="flex items-center gap-x-2">
+            <ThemeToggle />
             <Link
               href={'#'}
               className={cn(buttonVariants({ variant: 'secondary' }))}
