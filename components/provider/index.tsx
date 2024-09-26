@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { TailwindIndicator } from '../ui/tailwind-indicator';
+import { ThemeProvider } from './theme';
 
 interface Props {
   children: ReactNode;
@@ -8,8 +9,15 @@ interface Props {
 export function Providers({ children }: Props) {
   return (
     <>
-      {children}
-      <TailwindIndicator align='center'/>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        {children}
+        <TailwindIndicator align="center" />
+      </ThemeProvider>
     </>
   );
 }
