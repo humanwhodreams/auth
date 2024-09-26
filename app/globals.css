@@ -14,6 +14,8 @@
     --primary-foreground: 26 83.3% 14.1%;
     --secondary: 60 4.8% 95.9%;
     --secondary-foreground: 24 9.8% 10%;
+    --tertiary: 220.9 39.3% 11%;
+    --tertiary-foreground: 210 20% 98%;
     --muted: 60 4.8% 95.9%;
     --muted-foreground: 25 5.3% 44.7%;
     --accent: 60 4.8% 95.9%;
@@ -42,6 +44,8 @@
     --primary-foreground: 26 83.3% 14.1%;
     --secondary: 12 6.5% 15.1%;
     --secondary-foreground: 60 9.1% 97.8%;
+    --tertiary: 210 20% 98%;
+    --tertiary-foreground: 220.9 39.3% 11%;
     --muted: 12 6.5% 15.1%;
     --muted-foreground: 24 5.4% 63.9%;
     --accent: 12 6.5% 15.1%;
@@ -68,5 +72,32 @@
   }
   code {
     @apply font-geistMono;
+  }
+  h1 {
+    @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+  }
+  h2 {
+    @apply scroll-m-20 border-b pb-2 text-3xl font-bold tracking-tight first:mt-0;
+  }
+  h3 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+  h4 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+  small {
+    @apply text-sm font-medium leading-none;
+  }
+  .paragraph {
+    @apply leading-7 [&:not(:first-child)]:mt-6;
+  }
+  .lead {
+    @apply text-xl text-muted-foreground;
+  }
+  .large {
+    @apply text-lg font-semibold;
+  }
+  .muted {
+    @apply text-sm text-muted-foreground;
   }
 }
