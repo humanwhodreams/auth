@@ -1,15 +1,19 @@
-import * as React from 'react';
+/*
+ * Code from https://usehooks-ts.com/react-hook/use-is-mounted#hook
+ */
 
-function useMounted() {
-  const [isMounted, setIsMounted] = React.useState<boolean>(false);
+import { useCallback, useEffect, useRef } from 'react';
 
-  React.useEffect(() => {
-    setIsMounted(true);
+export function useIsMounted(): () => boolean {
+  const isMounted = useRef(false);
+
+  useEffect(() => {
+    isMounted.current = true;
+
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
 
-  return {
-    isMounted,
-  };
+  return useCallback(() => isMounted.current, []);
 }
-
-export { useMounted };
