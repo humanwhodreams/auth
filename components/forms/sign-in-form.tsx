@@ -15,6 +15,7 @@ import {
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
+import { Loader2Icon } from 'lucide-react';
 
 export function SignInForm() {
   const form = useForm<SignInSchema>({
@@ -25,14 +26,17 @@ export function SignInForm() {
     },
   });
 
-  function onSubmit(values: SignInSchema) {
+  async function onSubmit(values: SignInSchema) {
     console.log(values);
+    form.reset();
   }
 
   const error = {
     emailAddress: form.getFieldState('email').error,
     password: form.getFieldState('password').error,
   };
+
+  const isSubmitting = form.formState.isSubmitting;
 
   return (
     <Form {...form}>
@@ -88,8 +92,15 @@ export function SignInForm() {
             Forgot password?
           </Link>
         </div>
-        <Button type="submit" className="w-full">
-          Sign in
+        <Button type="submit" className="w-full" disabled={isSubmitting}>
+          {isSubmitting ? (
+            <>
+              <Loader2Icon className="size-4 mr-2 animate-spin flex-shrink-0 text-current" />
+              Signing in
+            </>
+          ) : (
+            <>Sign in</>
+          )}
         </Button>
       </form>
     </Form>

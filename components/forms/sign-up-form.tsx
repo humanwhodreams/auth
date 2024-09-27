@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Loader2Icon } from 'lucide-react';
 
 export function SignUpForm() {
   const form = useForm<SignUpSchema>({
@@ -26,8 +27,9 @@ export function SignUpForm() {
     },
   });
 
-  function onSubmit(values: SignUpSchema) {
+  async function onSubmit(values: SignUpSchema) {
     console.log(values);
+    form.reset();
   }
 
   const error = {
@@ -36,6 +38,8 @@ export function SignUpForm() {
     password: form.getFieldState('password').error,
     confirm: form.getFieldState('confirm').error,
   };
+
+  const isSubmitting = form.formState.isSubmitting;
 
   return (
     <Form {...form}>
@@ -126,8 +130,15 @@ export function SignUpForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full">
-          Create account
+        <Button type="submit" className="w-full" disabled={isSubmitting}>
+          {isSubmitting ? (
+            <>
+              <Loader2Icon className="size-4 mr-2 animate-spin flex-shrink-0 text-current" />
+              Creating account
+            </>
+          ) : (
+            <>Create account</>
+          )}
         </Button>
       </form>
     </Form>
