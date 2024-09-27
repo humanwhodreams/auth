@@ -7,15 +7,15 @@ import { cn } from '@/lib/cn';
 const NAVLINKS = [
   {
     label: 'Documentation',
-    href: '#',
+    href: '/docs',
   },
   {
     label: 'Components',
-    href: '#',
+    href: '/components',
   },
   {
     label: 'Blog',
-    href: '#',
+    href: '/blog',
   },
 ];
 
@@ -33,10 +33,10 @@ export function NavLinks() {
       ))}
       <Separator orientation="vertical" className="h-6 w-px rounded-full" />
       <ThemeToggle />
-      <Link href={'#'} className={cn(buttonVariants({ variant: 'secondary' }))}>
+      <Link href={'/sign-in'} className={cn(buttonVariants({ variant: 'secondary' }))}>
         Sign in
       </Link>
-      <Link href={'#'} className={cn(buttonVariants({}))}>
+      <Link href={'/sign-up'} className={cn(buttonVariants({}))}>
         Get access
       </Link>
     </div>
