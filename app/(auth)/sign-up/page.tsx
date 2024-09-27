@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Section } from '@/components/ui/section';
+import { SignUpForm } from '@/components/forms/sign-up-form';
 import { cn } from '@/lib/cn';
 import { focusRing } from '@/lib/focuses';
 
@@ -10,6 +11,7 @@ export default function Page() {
         <h1>Sign up</h1>
         <p className="paragraph lead">Enter your credentials to gain access</p>
       </div>
+      <SignUpForm />
       <div>
         <p className="paragraph">
           Already have an account?{' '}
