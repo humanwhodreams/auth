@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const passwordSchema = z
+const password = z
   .string()
   .min(8, 'Password must be at least 8 characters')
   .max(32, 'Password must be fewer than 32 characters')
@@ -15,12 +15,13 @@ const userSchema = z.object({
     .max(32, 'Name must be fewer than 32 characters')
     .default('User')
     .optional(),
-  emailAddress: z
+  email: z
     .string()
     .min(3, 'Email must be at least 3 characters')
     .max(150, 'Email must be fewer than 150 chracters')
     .email(),
-  password: passwordSchema,
+  password: password,
+  confirm: password,
   bio: z.string().max(300, 'Bio must be fewer than 300 characters').optional(),
 });
 

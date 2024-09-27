@@ -1,16 +1,16 @@
 import { userSchema } from '@/lib/validators/user';
 import { z } from 'zod';
 
-const signInSchema = userSchema.pick({ emailAddress: true, password: true });
-const signUpSchema = z
-  .object({
-    name: userSchema.pick({ name: true }),
-    emailAddress: userSchema.pick({ emailAddress: true }),
-    password: userSchema.pick({ password: true }),
-    confirmPassword: userSchema.pick({ password: true }),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    path: ['confirmPassword'],
+const signInSchema = userSchema.pick({ email: true, password: true });
+const signUpSchema = userSchema
+.pick({
+  name: true,
+  email: true,
+  password: true,
+  confirm: true,
+})
+  .refine((data) => data.password === data.confirm, {
+    path: ['confirm'],
     message: 'Passwords do not match',
   });
 
