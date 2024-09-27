@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 
 interface Props {
@@ -11,6 +12,7 @@ export default function Layout({ children }: Props) {
     <>
       <Header />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }

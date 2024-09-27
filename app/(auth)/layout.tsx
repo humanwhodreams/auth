@@ -1,4 +1,5 @@
 import { Brand } from '@/components/ui/brand';
+import { Footer } from '@/components/footer';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import { buttonVariants } from '@/components/ui/button';
@@ -13,6 +14,7 @@ export default function Layout({ children }: Props) {
     <>
       <Header />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }
