@@ -20,7 +20,7 @@ export function SignInForm() {
   const form = useForm<SignInSchema>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
-      emailAddress: '',
+      email: '',
       password: '',
     },
   });
@@ -30,7 +30,7 @@ export function SignInForm() {
   }
 
   const error = {
-    emailAddress: form.getFieldState('emailAddress').error,
+    emailAddress: form.getFieldState('email').error,
     password: form.getFieldState('password').error,
   };
 
@@ -42,7 +42,7 @@ export function SignInForm() {
       >
         <FormField
           control={form.control}
-          name="emailAddress"
+          name="email"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email address</FormLabel>
