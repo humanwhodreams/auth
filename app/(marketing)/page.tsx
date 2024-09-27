@@ -13,7 +13,7 @@ export default function Home() {
           Tailwindcss, Typescript, Drizzle, and NeonDB.
         </p>
 
-        <div className='flex flex-col items-center gap-2 md:flex-row'>
+        <div className="flex flex-col gap-y-2 sm:gap-x-2 sm:items-center sm:flex-row">
           <Link
             href={'#'}
             className={buttonVariants({ variant: 'tertiary', size: 'lg' })}
