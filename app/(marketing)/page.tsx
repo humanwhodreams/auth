@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Section } from '@/components/ui/section';
+import { UserButton } from '@/components/user-button';
 import { buttonVariants } from '@/components/ui/button';
 
 export default function Home() {
@@ -26,6 +27,9 @@ export default function Home() {
             GitHub
           </Link>
         </div>
+      </Section>
+      <Section>
+        <UserButton userName='Enoabasi Ephraim Essien'/>
       </Section>
     </>
   );
