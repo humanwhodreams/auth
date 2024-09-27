@@ -2,16 +2,14 @@
 
 import { Brand } from '@/components/ui/brand';
 import { HeaderMobile } from './header.mobile';
-import Link from 'next/link';
-import { ThemeToggle } from './theme-toggle';
-import { buttonVariants } from './ui/button';
+import { NavLinks } from './header.navlinks';
 import { cn } from '@/lib/cn';
 import { useMediaQuery } from '@/hooks/use-media-query';
 
 interface Props {
   classes?: {
-    header?: '';
-    nav?: '';
+    header?: string;
+    nav?: string;
   };
 }
 
@@ -28,22 +26,7 @@ export function Header({ classes }: Props) {
       >
         <Brand />
 
-        {IS_MOBILE ? (
-          <HeaderMobile />
-        ) : (
-          <div className="flex items-center gap-x-2">
-            <ThemeToggle />
-            <Link
-              href={'#'}
-              className={cn(buttonVariants({ variant: 'secondary' }))}
-            >
-              Sign in
-            </Link>
-            <Link href={'#'} className={cn(buttonVariants({}))}>
-              Get access
-            </Link>
-          </div>
-        )}
+        {IS_MOBILE ? <HeaderMobile /> : <NavLinks />}
       </nav>
     </header>
   );
